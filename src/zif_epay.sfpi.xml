@@ -1,0 +1,212 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_SFPI" serializer_version="v1.0.0">
+ <asx:abap version="1.0" xmlns:asx="http://www.sap.com/abapxml">
+  <asx:values>
+   <VERSION>1</VERSION>
+   <TYPE/>
+   <INTERFACE href="#o1"/>
+   <INTERFACET>
+    <FPINTERFACET>
+     <NAME/>
+     <STATE/>
+     <LANGUAGE>E</LANGUAGE>
+     <ID/>
+     <TEXT>INTF EMP PAYSLIP</TEXT>
+    </FPINTERFACET>
+   </INTERFACET>
+  </asx:values>
+  <asx:heap xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:abap="http://www.sap.com/abapxml/types/built-in" xmlns:cls="http://www.sap.com/abapxml/classes/global" xmlns:dic="http://www.sap.com/abapxml/types/dictionary">
+   <cls:CL_FP_INTERFACE_DATA id="o1">
+    <CL_FP_INTERFACE_DATA classVersion="1">
+     <CODING href="#o5"/>
+     <PARAMETERS href="#o4"/>
+     <GLOBAL_DEFINITIONS href="#o3"/>
+     <REFERENCE_FIELDS href="#o2"/>
+     <XSD_DEFINITIONS/>
+    </CL_FP_INTERFACE_DATA>
+   </cls:CL_FP_INTERFACE_DATA>
+   <cls:CL_FP_REFERENCE_FIELDS id="o2">
+    <CL_FP_INTERFACE_DATA_CHANGED classVersion="1">
+     <INTERFACE_DATA href="#o1"/>
+    </CL_FP_INTERFACE_DATA_CHANGED>
+    <CL_FP_REFERENCE_FIELDS classVersion="1">
+     <REFERENCE_FIELDS>
+      <SFPREF>
+       <ACTIVE/>
+       <STANDARD/>
+       <DATATYPE>CURR</DATATYPE>
+       <VALUE>E_ITEMS-RATE</VALUE>
+       <UNIT>E_ITEMS-CURRENCY</UNIT>
+      </SFPREF>
+      <SFPREF>
+       <ACTIVE/>
+       <STANDARD/>
+       <DATATYPE>CURR</DATATYPE>
+       <VALUE>E_ITEMS-AMOUNT</VALUE>
+       <UNIT>E_ITEMS-CURRENCY</UNIT>
+      </SFPREF>
+      <SFPREF>
+       <ACTIVE/>
+       <STANDARD/>
+       <DATATYPE>CURR</DATATYPE>
+       <VALUE>E_HEADER-TOTAL_DEDUCTIONS</VALUE>
+       <UNIT>E_HEADER-CURRENCY</UNIT>
+      </SFPREF>
+      <SFPREF>
+       <ACTIVE/>
+       <STANDARD/>
+       <DATATYPE>CURR</DATATYPE>
+       <VALUE>E_HEADER-NET_PAY</VALUE>
+       <UNIT>E_HEADER-CURRENCY</UNIT>
+      </SFPREF>
+      <SFPREF>
+       <ACTIVE/>
+       <STANDARD/>
+       <DATATYPE>CURR</DATATYPE>
+       <VALUE>E_HEADER-GROSS_PAY</VALUE>
+       <UNIT>E_HEADER-CURRENCY</UNIT>
+      </SFPREF>
+      <SFPREF>
+       <ACTIVE/>
+       <STANDARD/>
+       <DATATYPE>CURR</DATATYPE>
+       <VALUE>E_HEADER-ANNUAL_SALARY</VALUE>
+       <UNIT>E_HEADER-CURRENCY</UNIT>
+      </SFPREF>
+     </REFERENCE_FIELDS>
+    </CL_FP_REFERENCE_FIELDS>
+   </cls:CL_FP_REFERENCE_FIELDS>
+   <cls:CL_FP_GLOBAL_DEFINITIONS id="o3">
+    <CL_FP_INTERFACE_DATA_CHANGED classVersion="1">
+     <INTERFACE_DATA href="#o1"/>
+    </CL_FP_INTERFACE_DATA_CHANGED>
+    <CL_FP_GLOBAL_DEFINITIONS classVersion="1">
+     <GLOBAL_DATA>
+      <SFPGDATA>
+       <NAME>E_ITEMS</NAME>
+       <TYPING>TYPE</TYPING>
+       <TYPENAME>ZHCM_EPAY_I_T</TYPENAME>
+       <DEFAULTVAL/>
+       <CONSTANT/>
+      </SFPGDATA>
+      <SFPGDATA>
+       <NAME>E_HEADER</NAME>
+       <TYPING>TYPE</TYPING>
+       <TYPENAME>ZHCM_EPAY_S</TYPENAME>
+       <DEFAULTVAL/>
+       <CONSTANT/>
+      </SFPGDATA>
+     </GLOBAL_DATA>
+     <TYPES/>
+     <FIELDSYMBOLS/>
+    </CL_FP_GLOBAL_DEFINITIONS>
+   </cls:CL_FP_GLOBAL_DEFINITIONS>
+   <cls:CL_FP_PARAMETERS id="o4">
+    <CL_FP_INTERFACE_DATA_CHANGED classVersion="1">
+     <INTERFACE_DATA href="#o1"/>
+    </CL_FP_INTERFACE_DATA_CHANGED>
+    <CL_FP_PARAMETERS classVersion="1">
+     <IMPORT_PARAMETERS>
+      <SFPIOPAR>
+       <NAME>I_EMP_ID</NAME>
+       <TYPING>TYPE</TYPING>
+       <TYPENAME>PERNR_D</TYPENAME>
+       <OPTIONAL/>
+       <BYVALUE>X</BYVALUE>
+       <DEFAULTVAL/>
+       <STANDARD/>
+       <CONSTANT/>
+      </SFPIOPAR>
+     </IMPORT_PARAMETERS>
+     <EXPORT_PARAMETERS/>
+     <TABLE_PARAMETERS/>
+     <EXCEPTIONS/>
+    </CL_FP_PARAMETERS>
+   </cls:CL_FP_PARAMETERS>
+   <cls:CL_FP_CODING id="o5">
+    <CL_FP_INTERFACE_DATA_CHANGED classVersion="1">
+     <INTERFACE_DATA href="#o1"/>
+    </CL_FP_INTERFACE_DATA_CHANGED>
+    <CL_FP_CODING classVersion="1">
+     <INPUT_PARAMETERS/>
+     <OUTPUT_PARAMETERS/>
+     <INITIALIZATION>
+      <FPCLINE>&quot;---------------------------------------------------------------</FPCLINE>
+      <FPCLINE>&quot; Fetch header data from PA0001, PA0002, PA0008</FPCLINE>
+      <FPCLINE>&quot;---------------------------------------------------------------</FPCLINE>
+      <FPCLINE>DATA: ls_pa0001 TYPE pa0001,</FPCLINE>
+      <FPCLINE>      ls_pa0002 TYPE pa0002,</FPCLINE>
+      <FPCLINE>      ls_pa0008 TYPE pa0008,</FPCLINE>
+      <FPCLINE>      wa_line   TYPE zhcm_epay_i_s,</FPCLINE>
+      <FPCLINE>      lv_pernr type pernr_d,</FPCLINE>
+      <FPCLINE>      lv_text   TYPE lgtxt.</FPCLINE>
+      <FPCLINE>CALL FUNCTION &apos;CONVERSION_EXIT_ALPHA_INPUT&apos;</FPCLINE>
+      <FPCLINE>  EXPORTING</FPCLINE>
+      <FPCLINE>    input  = i_emp_id</FPCLINE>
+      <FPCLINE>  IMPORTING</FPCLINE>
+      <FPCLINE>    output = lv_pernr.</FPCLINE>
+      <FPCLINE>SELECT SINGLE * INTO ls_pa0001 FROM pa0001 WHERE pernr = lv_pernr.</FPCLINE>
+      <FPCLINE>SELECT SINGLE * INTO ls_pa0002 FROM pa0002 WHERE pernr = lv_pernr.</FPCLINE>
+      <FPCLINE>SELECT SINGLE * INTO ls_pa0008 FROM pa0008 WHERE pernr = lv_pernr.</FPCLINE>
+      <FPCLINE/>
+      <FPCLINE>e_header-emp_id            = lv_pernr.</FPCLINE>
+      <FPCLINE>e_header-emp_firstname     = ls_pa0002-vorna.</FPCLINE>
+      <FPCLINE>e_header-emp_lastname      = ls_pa0002-nachn.</FPCLINE>
+      <FPCLINE>e_header-dob               = ls_pa0002-gbdat.</FPCLINE>
+      <FPCLINE>e_header-gender            = ls_pa0002-gesch.</FPCLINE>
+      <FPCLINE>e_header-org_key           = ls_pa0001-vdsk1.</FPCLINE>
+      <FPCLINE>e_header-pay_scale_type    = ls_pa0008-trfar.</FPCLINE>
+      <FPCLINE>e_header-pay_scale_area    = ls_pa0008-trfgb.</FPCLINE>
+      <FPCLINE>e_header-pay_scale_group   = ls_pa0008-trfgr.</FPCLINE>
+      <FPCLINE>e_header-pay_scale_level   = ls_pa0008-trfst.</FPCLINE>
+      <FPCLINE>e_header-utilization_level = ls_pa0008-bsgrd.</FPCLINE>
+      <FPCLINE>e_header-currency          = ls_pa0008-waers.</FPCLINE>
+      <FPCLINE/>
+      <FPCLINE>&quot; Handle salary (annual or calculated)</FPCLINE>
+      <FPCLINE>e_header-annual_salary = ls_pa0008-ansal.</FPCLINE>
+      <FPCLINE>IF e_header-annual_salary IS INITIAL.</FPCLINE>
+      <FPCLINE>  e_header-annual_salary = ( ls_pa0008-bet01 + ls_pa0008-bet02 ) * 12.</FPCLINE>
+      <FPCLINE>ENDIF.</FPCLINE>
+      <FPCLINE/>
+      <FPCLINE>&quot;---------------------------------------------------------------</FPCLINE>
+      <FPCLINE>&quot; Wage type: Allowance 1 from PA0008 (lga01)</FPCLINE>
+      <FPCLINE>&quot;---------------------------------------------------------------</FPCLINE>
+      <FPCLINE>IF ls_pa0008-lga01 IS NOT INITIAL AND ls_pa0008-bet01 &gt; 0.</FPCLINE>
+      <FPCLINE>  wa_line-wage_type = ls_pa0008-lga01.</FPCLINE>
+      <FPCLINE>  wa_line-amount    = ls_pa0008-bet01.</FPCLINE>
+      <FPCLINE>  wa_line-currency  = ls_pa0008-waers.</FPCLINE>
+      <FPCLINE>  wa_line-emp_id    = lv_pernr.</FPCLINE>
+      <FPCLINE/>
+      <FPCLINE>  SELECT SINGLE lgtxt INTO lv_text</FPCLINE>
+      <FPCLINE>    FROM t512t</FPCLINE>
+      <FPCLINE>    WHERE sprsl = sy-langu AND lgart = ls_pa0008-lga01.</FPCLINE>
+      <FPCLINE>  wa_line-wage_desc = lv_text.</FPCLINE>
+      <FPCLINE/>
+      <FPCLINE>  APPEND wa_line TO e_items.</FPCLINE>
+      <FPCLINE>  CLEAR wa_line.</FPCLINE>
+      <FPCLINE>ENDIF.</FPCLINE>
+      <FPCLINE/>
+      <FPCLINE>&quot;---------------------------------------------------------------</FPCLINE>
+      <FPCLINE>&quot; Wage type: Allowance 2 from PA0008 (lga02)</FPCLINE>
+      <FPCLINE>&quot;---------------------------------------------------------------</FPCLINE>
+      <FPCLINE>IF ls_pa0008-lga02 IS NOT INITIAL AND ls_pa0008-bet02 &gt; 0.</FPCLINE>
+      <FPCLINE>  wa_line-wage_type = ls_pa0008-lga02.</FPCLINE>
+      <FPCLINE>  wa_line-amount    = ls_pa0008-bet02.</FPCLINE>
+      <FPCLINE>  wa_line-currency  = ls_pa0008-waers.</FPCLINE>
+      <FPCLINE>  wa_line-emp_id    = lv_pernr.</FPCLINE>
+      <FPCLINE/>
+      <FPCLINE>  SELECT SINGLE lgtxt INTO lv_text</FPCLINE>
+      <FPCLINE>    FROM t512t</FPCLINE>
+      <FPCLINE>    WHERE sprsl = sy-langu AND lgart = ls_pa0008-lga02.</FPCLINE>
+      <FPCLINE>  wa_line-wage_desc = lv_text.</FPCLINE>
+      <FPCLINE/>
+      <FPCLINE>  APPEND wa_line TO e_items.</FPCLINE>
+      <FPCLINE>  CLEAR wa_line.</FPCLINE>
+      <FPCLINE>ENDIF.</FPCLINE>
+     </INITIALIZATION>
+     <FORMS/>
+    </CL_FP_CODING>
+   </cls:CL_FP_CODING>
+  </asx:heap>
+ </asx:abap>
+</abapGit>

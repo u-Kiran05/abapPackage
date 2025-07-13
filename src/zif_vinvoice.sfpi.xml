@@ -1,0 +1,191 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_SFPI" serializer_version="v1.0.0">
+ <asx:abap version="1.0" xmlns:asx="http://www.sap.com/abapxml">
+  <asx:values>
+   <VERSION>1</VERSION>
+   <TYPE/>
+   <INTERFACE href="#o1"/>
+   <INTERFACET>
+    <FPINTERFACET>
+     <NAME/>
+     <STATE/>
+     <LANGUAGE>E</LANGUAGE>
+     <ID/>
+     <TEXT>INTERFACE VENDOR INVOICE</TEXT>
+    </FPINTERFACET>
+   </INTERFACET>
+  </asx:values>
+  <asx:heap xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:abap="http://www.sap.com/abapxml/types/built-in" xmlns:cls="http://www.sap.com/abapxml/classes/global" xmlns:dic="http://www.sap.com/abapxml/types/dictionary">
+   <cls:CL_FP_INTERFACE_DATA id="o1">
+    <CL_FP_INTERFACE_DATA classVersion="1">
+     <CODING href="#o5"/>
+     <PARAMETERS href="#o4"/>
+     <GLOBAL_DEFINITIONS href="#o3"/>
+     <REFERENCE_FIELDS href="#o2"/>
+     <XSD_DEFINITIONS/>
+    </CL_FP_INTERFACE_DATA>
+   </cls:CL_FP_INTERFACE_DATA>
+   <cls:CL_FP_REFERENCE_FIELDS id="o2">
+    <CL_FP_INTERFACE_DATA_CHANGED classVersion="1">
+     <INTERFACE_DATA href="#o1"/>
+    </CL_FP_INTERFACE_DATA_CHANGED>
+    <CL_FP_REFERENCE_FIELDS classVersion="1">
+     <REFERENCE_FIELDS>
+      <SFPREF>
+       <ACTIVE/>
+       <STANDARD/>
+       <DATATYPE>CURR</DATATYPE>
+       <VALUE>T_ITEMS-WRBTR</VALUE>
+       <UNIT>T_ITEMS-WAERS</UNIT>
+      </SFPREF>
+      <SFPREF>
+       <ACTIVE/>
+       <STANDARD/>
+       <DATATYPE>QUAN</DATATYPE>
+       <VALUE>T_ITEMS-MENGE</VALUE>
+       <UNIT>T_ITEMS-MEINS</UNIT>
+      </SFPREF>
+      <SFPREF>
+       <ACTIVE/>
+       <STANDARD/>
+       <DATATYPE>CURR</DATATYPE>
+       <VALUE>T_HEADER-RMWWR</VALUE>
+       <UNIT>T_HEADER-WAERS</UNIT>
+      </SFPREF>
+     </REFERENCE_FIELDS>
+    </CL_FP_REFERENCE_FIELDS>
+   </cls:CL_FP_REFERENCE_FIELDS>
+   <cls:CL_FP_GLOBAL_DEFINITIONS id="o3">
+    <CL_FP_INTERFACE_DATA_CHANGED classVersion="1">
+     <INTERFACE_DATA href="#o1"/>
+    </CL_FP_INTERFACE_DATA_CHANGED>
+    <CL_FP_GLOBAL_DEFINITIONS classVersion="1">
+     <GLOBAL_DATA>
+      <SFPGDATA>
+       <NAME>T_HEADER</NAME>
+       <TYPING>TYPE</TYPING>
+       <TYPENAME>ZMM_VINVOICE_S</TYPENAME>
+       <DEFAULTVAL/>
+       <CONSTANT/>
+      </SFPGDATA>
+      <SFPGDATA>
+       <NAME>T_ITEMS</NAME>
+       <TYPING>TYPE</TYPING>
+       <TYPENAME>ZMM_VINVOICE_I_T</TYPENAME>
+       <DEFAULTVAL/>
+       <CONSTANT/>
+      </SFPGDATA>
+     </GLOBAL_DATA>
+     <TYPES>
+      <FPCLINE>TYPES: BEGIN OF ty_invoice_header,</FPCLINE>
+      <FPCLINE>         belnr TYPE belnr_d,</FPCLINE>
+      <FPCLINE>         gjahr TYPE gjahr,</FPCLINE>
+      <FPCLINE>         bukrs TYPE bukrs,</FPCLINE>
+      <FPCLINE>         lifnr TYPE lifnr,</FPCLINE>
+      <FPCLINE>         budat TYPE budat,</FPCLINE>
+      <FPCLINE>         bldat TYPE bldat,</FPCLINE>
+      <FPCLINE>         rmwwr TYPE rmwwr,</FPCLINE>
+      <FPCLINE>         waers TYPE waers,</FPCLINE>
+      <FPCLINE>       END OF ty_invoice_header.</FPCLINE>
+      <FPCLINE/>
+      <FPCLINE/>
+      <FPCLINE>TYPES: BEGIN OF ty_invoice_item,</FPCLINE>
+      <FPCLINE>         ebeln  TYPE ebeln,</FPCLINE>
+      <FPCLINE>         ebelp  TYPE ebelp,</FPCLINE>
+      <FPCLINE>         matnr  TYPE matnr,</FPCLINE>
+      <FPCLINE>         maktx  TYPE maktx,</FPCLINE>
+      <FPCLINE>         menge  TYPE menge_d,</FPCLINE>
+      <FPCLINE>         meins  TYPE meins,</FPCLINE>
+      <FPCLINE>         wrbtr  TYPE wrbtr,</FPCLINE>
+      <FPCLINE>         waers  TYPE waers,</FPCLINE>
+      <FPCLINE>         bstme  TYPE bstme,</FPCLINE>
+      <FPCLINE>       END OF ty_invoice_item.</FPCLINE>
+      <FPCLINE/>
+      <FPCLINE>TYPES: tt_invoice_item TYPE STANDARD TABLE OF ty_invoice_item WITH EMPTY KEY.</FPCLINE>
+      <FPCLINE/>
+      <FPCLINE/>
+     </TYPES>
+     <FIELDSYMBOLS/>
+    </CL_FP_GLOBAL_DEFINITIONS>
+   </cls:CL_FP_GLOBAL_DEFINITIONS>
+   <cls:CL_FP_PARAMETERS id="o4">
+    <CL_FP_INTERFACE_DATA_CHANGED classVersion="1">
+     <INTERFACE_DATA href="#o1"/>
+    </CL_FP_INTERFACE_DATA_CHANGED>
+    <CL_FP_PARAMETERS classVersion="1">
+     <IMPORT_PARAMETERS>
+      <SFPIOPAR>
+       <NAME>I_VENDOR_ID</NAME>
+       <TYPING>TYPE</TYPING>
+       <TYPENAME>LIFNR</TYPENAME>
+       <OPTIONAL/>
+       <BYVALUE>X</BYVALUE>
+       <DEFAULTVAL/>
+       <STANDARD/>
+       <CONSTANT/>
+      </SFPIOPAR>
+      <SFPIOPAR>
+       <NAME>I_INVOICE_ID</NAME>
+       <TYPING>TYPE</TYPING>
+       <TYPENAME>RBKP-BELNR</TYPENAME>
+       <OPTIONAL/>
+       <BYVALUE>X</BYVALUE>
+       <DEFAULTVAL/>
+       <STANDARD/>
+       <CONSTANT/>
+      </SFPIOPAR>
+     </IMPORT_PARAMETERS>
+     <EXPORT_PARAMETERS/>
+     <TABLE_PARAMETERS/>
+     <EXCEPTIONS/>
+    </CL_FP_PARAMETERS>
+   </cls:CL_FP_PARAMETERS>
+   <cls:CL_FP_CODING id="o5">
+    <CL_FP_INTERFACE_DATA_CHANGED classVersion="1">
+     <INTERFACE_DATA href="#o1"/>
+    </CL_FP_INTERFACE_DATA_CHANGED>
+    <CL_FP_CODING classVersion="1">
+     <INPUT_PARAMETERS/>
+     <OUTPUT_PARAMETERS/>
+     <INITIALIZATION>
+      <FPCLINE>CLEAR: t_header, t_items.</FPCLINE>
+      <FPCLINE/>
+      <FPCLINE>&quot; Fetch header from RBKP - use RWBTR instead of WRBTR</FPCLINE>
+      <FPCLINE>SELECT SINGLE belnr, gjahr ,bukrs, lifnr, budat, bldat, RMWWR ,waers</FPCLINE>
+      <FPCLINE>  INTO @t_header</FPCLINE>
+      <FPCLINE>  FROM rbkp</FPCLINE>
+      <FPCLINE>  WHERE belnr = @i_invoice_id</FPCLINE>
+      <FPCLINE>    AND lifnr = @i_vendor_id.</FPCLINE>
+      <FPCLINE/>
+      <FPCLINE>&quot; Fetch item details from RSEG</FPCLINE>
+      <FPCLINE>IF sy-subrc = 0.</FPCLINE>
+      <FPCLINE>  SELECT ebeln, ebelp, matnr, menge ,meins, WRBTR,BSTME</FPCLINE>
+      <FPCLINE>    INTO TABLE @DATA(lt_rseg)</FPCLINE>
+      <FPCLINE>    FROM rseg</FPCLINE>
+      <FPCLINE>    WHERE belnr = @i_invoice_id.</FPCLINE>
+      <FPCLINE/>
+      <FPCLINE>  LOOP AT lt_rseg INTO DATA(ls_rseg).</FPCLINE>
+      <FPCLINE>    DATA(ls_item) = VALUE zmm_vinvoice_i_s(</FPCLINE>
+      <FPCLINE>      ebeln  = ls_rseg-ebeln</FPCLINE>
+      <FPCLINE>      ebelp  = ls_rseg-ebelp</FPCLINE>
+      <FPCLINE>      matnr  = ls_rseg-matnr</FPCLINE>
+      <FPCLINE>      menge  = ls_rseg-menge</FPCLINE>
+      <FPCLINE>      meins  = ls_rseg-meins</FPCLINE>
+      <FPCLINE>      wrbtr  = ls_rseg-wrbtr</FPCLINE>
+      <FPCLINE>      waers  = t_header-waers ).</FPCLINE>
+      <FPCLINE/>
+      <FPCLINE>    &quot; Get description</FPCLINE>
+      <FPCLINE>    SELECT SINGLE maktx INTO ls_item-maktx</FPCLINE>
+      <FPCLINE>      FROM makt</FPCLINE>
+      <FPCLINE>      WHERE matnr = ls_item-matnr</FPCLINE>
+      <FPCLINE>        AND spras = sy-langu.</FPCLINE>
+      <FPCLINE>    APPEND ls_item TO t_items.</FPCLINE>
+      <FPCLINE>  ENDLOOP.</FPCLINE>
+      <FPCLINE>ENDIF.</FPCLINE>
+     </INITIALIZATION>
+     <FORMS/>
+    </CL_FP_CODING>
+   </cls:CL_FP_CODING>
+  </asx:heap>
+ </asx:abap>
+</abapGit>

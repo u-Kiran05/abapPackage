@@ -1,0 +1,171 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_SFPI" serializer_version="v1.0.0">
+ <asx:abap version="1.0" xmlns:asx="http://www.sap.com/abapxml">
+  <asx:values>
+   <VERSION>1</VERSION>
+   <TYPE/>
+   <INTERFACE href="#o1"/>
+   <INTERFACET>
+    <FPINTERFACET>
+     <NAME/>
+     <STATE/>
+     <LANGUAGE>E</LANGUAGE>
+     <ID/>
+     <TEXT>INTERFACE CUSTOMER INVOICE</TEXT>
+    </FPINTERFACET>
+   </INTERFACET>
+  </asx:values>
+  <asx:heap xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:abap="http://www.sap.com/abapxml/types/built-in" xmlns:cls="http://www.sap.com/abapxml/classes/global" xmlns:dic="http://www.sap.com/abapxml/types/dictionary">
+   <cls:CL_FP_INTERFACE_DATA id="o1">
+    <CL_FP_INTERFACE_DATA classVersion="1">
+     <CODING href="#o5"/>
+     <PARAMETERS href="#o4"/>
+     <GLOBAL_DEFINITIONS href="#o3"/>
+     <REFERENCE_FIELDS href="#o2"/>
+     <XSD_DEFINITIONS/>
+    </CL_FP_INTERFACE_DATA>
+   </cls:CL_FP_INTERFACE_DATA>
+   <cls:CL_FP_REFERENCE_FIELDS id="o2">
+    <CL_FP_INTERFACE_DATA_CHANGED classVersion="1">
+     <INTERFACE_DATA href="#o1"/>
+    </CL_FP_INTERFACE_DATA_CHANGED>
+    <CL_FP_REFERENCE_FIELDS classVersion="1">
+     <REFERENCE_FIELDS>
+      <SFPREF>
+       <ACTIVE/>
+       <STANDARD/>
+       <DATATYPE>CURR</DATATYPE>
+       <VALUE>T_ITEMS-NETWR</VALUE>
+       <UNIT>T_HEADER-WAERK</UNIT>
+      </SFPREF>
+      <SFPREF>
+       <ACTIVE/>
+       <STANDARD/>
+       <DATATYPE>QUAN</DATATYPE>
+       <VALUE>T_ITEMS-FKIMG</VALUE>
+       <UNIT>T_ITEMS-VRKME</UNIT>
+      </SFPREF>
+      <SFPREF>
+       <ACTIVE/>
+       <STANDARD/>
+       <DATATYPE>CURR</DATATYPE>
+       <VALUE>T_HEADER-NETWR</VALUE>
+       <UNIT>T_HEADER-WAERK</UNIT>
+      </SFPREF>
+     </REFERENCE_FIELDS>
+    </CL_FP_REFERENCE_FIELDS>
+   </cls:CL_FP_REFERENCE_FIELDS>
+   <cls:CL_FP_GLOBAL_DEFINITIONS id="o3">
+    <CL_FP_INTERFACE_DATA_CHANGED classVersion="1">
+     <INTERFACE_DATA href="#o1"/>
+    </CL_FP_INTERFACE_DATA_CHANGED>
+    <CL_FP_GLOBAL_DEFINITIONS classVersion="1">
+     <GLOBAL_DATA>
+      <SFPGDATA>
+       <NAME>T_HEADER</NAME>
+       <TYPING>TYPE</TYPING>
+       <TYPENAME>ZSD_CINVOICE_S</TYPENAME>
+       <DEFAULTVAL/>
+       <CONSTANT/>
+      </SFPGDATA>
+      <SFPGDATA>
+       <NAME>T_ITEMS</NAME>
+       <TYPING>TYPE</TYPING>
+       <TYPENAME>ZSD_CINVOICE_I_T</TYPENAME>
+       <DEFAULTVAL/>
+       <CONSTANT/>
+      </SFPGDATA>
+     </GLOBAL_DATA>
+     <TYPES>
+      <FPCLINE>TYPES: BEGIN OF ty_cinvoice_header,</FPCLINE>
+      <FPCLINE>         vbeln TYPE vbeln_va,</FPCLINE>
+      <FPCLINE>         fkdat TYPE fkdat,</FPCLINE>
+      <FPCLINE>         netwr TYPE netwr,</FPCLINE>
+      <FPCLINE>         waerk TYPE waerk,</FPCLINE>
+      <FPCLINE>         erdat TYPE erdat,</FPCLINE>
+      <FPCLINE>         bukrs TYPE bukrs,</FPCLINE>
+      <FPCLINE>       END OF ty_cinvoice_header.</FPCLINE>
+      <FPCLINE/>
+      <FPCLINE>TYPES: BEGIN OF ty_cinvoice_item,</FPCLINE>
+      <FPCLINE>         vbeln TYPE vbeln_va,          &quot; Sales document number</FPCLINE>
+      <FPCLINE>         posnr TYPE posnr,             &quot; Item number</FPCLINE>
+      <FPCLINE>         matnr TYPE matnr,             &quot; Material number</FPCLINE>
+      <FPCLINE>         arktx TYPE arktx,             &quot; Material description</FPCLINE>
+      <FPCLINE>         fkimg TYPE FKIMG,       &quot; Invoiced quantity</FPCLINE>
+      <FPCLINE>         vrkme TYPE unit,             &quot; Unit of measure</FPCLINE>
+      <FPCLINE>         netwr TYPE NETWR,       &quot; Net value</FPCLINE>
+      <FPCLINE>       END OF ty_cinvoice_item.</FPCLINE>
+      <FPCLINE/>
+      <FPCLINE/>
+      <FPCLINE>TYPES: ty_cinvoice_items TYPE STANDARD TABLE OF ty_cinvoice_item WITH DEFAULT KEY.</FPCLINE>
+     </TYPES>
+     <FIELDSYMBOLS/>
+    </CL_FP_GLOBAL_DEFINITIONS>
+   </cls:CL_FP_GLOBAL_DEFINITIONS>
+   <cls:CL_FP_PARAMETERS id="o4">
+    <CL_FP_INTERFACE_DATA_CHANGED classVersion="1">
+     <INTERFACE_DATA href="#o1"/>
+    </CL_FP_INTERFACE_DATA_CHANGED>
+    <CL_FP_PARAMETERS classVersion="1">
+     <IMPORT_PARAMETERS>
+      <SFPIOPAR>
+       <NAME>I_INVOICE_ID</NAME>
+       <TYPING>TYPE</TYPING>
+       <TYPENAME>VBAK-VBELN</TYPENAME>
+       <OPTIONAL/>
+       <BYVALUE>X</BYVALUE>
+       <DEFAULTVAL/>
+       <STANDARD/>
+       <CONSTANT/>
+      </SFPIOPAR>
+      <SFPIOPAR>
+       <NAME>I_CUSTOMER_ID</NAME>
+       <TYPING>TYPE</TYPING>
+       <TYPENAME>KUNNR</TYPENAME>
+       <OPTIONAL/>
+       <BYVALUE>X</BYVALUE>
+       <DEFAULTVAL/>
+       <STANDARD/>
+       <CONSTANT/>
+      </SFPIOPAR>
+     </IMPORT_PARAMETERS>
+     <EXPORT_PARAMETERS/>
+     <TABLE_PARAMETERS/>
+     <EXCEPTIONS/>
+    </CL_FP_PARAMETERS>
+   </cls:CL_FP_PARAMETERS>
+   <cls:CL_FP_CODING id="o5">
+    <CL_FP_INTERFACE_DATA_CHANGED classVersion="1">
+     <INTERFACE_DATA href="#o1"/>
+    </CL_FP_INTERFACE_DATA_CHANGED>
+    <CL_FP_CODING classVersion="1">
+     <INPUT_PARAMETERS/>
+     <OUTPUT_PARAMETERS/>
+     <INITIALIZATION>
+      <FPCLINE>CLEAR t_header.</FPCLINE>
+      <FPCLINE>CLEAR t_items.</FPCLINE>
+      <FPCLINE/>
+      <FPCLINE>&quot; Fetch header data from VBRK</FPCLINE>
+      <FPCLINE>SELECT SINGLE vbeln fkdat netwr waerk erdat bukrs</FPCLINE>
+      <FPCLINE>  INTO t_header</FPCLINE>
+      <FPCLINE>  FROM vbrk</FPCLINE>
+      <FPCLINE>  WHERE vbeln = i_invoice_id</FPCLINE>
+      <FPCLINE>    AND kunag = i_customer_id.</FPCLINE>
+      <FPCLINE/>
+      <FPCLINE>&quot; Fetch item data from VBRP</FPCLINE>
+      <FPCLINE>SELECT vbeln posnr matnr arktx fkimg vrkme netwr</FPCLINE>
+      <FPCLINE>  INTO TABLE t_items</FPCLINE>
+      <FPCLINE>  FROM vbrp</FPCLINE>
+      <FPCLINE>  WHERE vbeln = i_invoice_id.</FPCLINE>
+      <FPCLINE/>
+      <FPCLINE>&quot; Optional: Add error handling if no data found</FPCLINE>
+      <FPCLINE>IF sy-subrc &lt;&gt; 0 OR t_header IS INITIAL OR t_items IS INITIAL.</FPCLINE>
+      <FPCLINE>  MESSAGE e398(00) WITH &apos;No data found for the provided Customer ID and Invoice ID&apos;.</FPCLINE>
+      <FPCLINE>ENDIF.</FPCLINE>
+     </INITIALIZATION>
+     <FORMS/>
+    </CL_FP_CODING>
+   </cls:CL_FP_CODING>
+  </asx:heap>
+ </asx:abap>
+</abapGit>
