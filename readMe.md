@@ -12,7 +12,7 @@
 **`abapPackage`** is a modular ABAP development package designed for use in SAP NetWeaver systems. It includes well-structured ABAP objects like classes, reports, and interfaces, making it suitable for reuse across different projects or demonstrations.
 
 <div align="center">
-  <img src="https://miro.medium.com/v2/resize:fit:1200/1*dMYu2Z4Sv2mXCiT9iHjX6w.jpeg" alt="ABAP Package Overview" width="600"/>
+  <img src="https://4.bp.blogspot.com/-v8r1CSNOuJk/WiDKZiFCHoI/AAAAAAAAQFg/belUeZSF81QOVdSE6UR0lwTUG3XIIaBXACLcBGAs/s1600/1.jpg" alt="ABAP Package Overview" width="600"/>
   <p><i>Fig 1: Overview of ABAP package structure</i></p>
 </div>
 
