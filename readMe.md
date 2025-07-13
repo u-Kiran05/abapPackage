@@ -1,7 +1,6 @@
 # 🧰 abapPackage
 
 ![ABAP](https://img.shields.io/badge/language-ABAP-blue.svg)
-![License](https://img.shields.io/badge/license-MIT-green)
 ![abapGit](https://img.shields.io/badge/abapGit-compatible-orange)
 
 > A reusable ABAP development package ready for transport via abapGit.
@@ -13,7 +12,7 @@
 **`abapPackage`** is a modular ABAP development package designed for use in SAP NetWeaver systems. It includes well-structured ABAP objects like classes, reports, and interfaces, making it suitable for reuse across different projects or demonstrations.
 
 <div align="center">
-  <img src="docs/images/abap_overview.png" alt="ABAP Package Overview" width="600"/>
+  <img src="https://miro.medium.com/v2/resize:fit:1200/1*dMYu2Z4Sv2mXCiT9iHjX6w.jpeg" alt="ABAP Package Overview" width="600"/>
   <p><i>Fig 1: Overview of ABAP package structure</i></p>
 </div>
 
@@ -42,9 +41,7 @@
 4. Pull and activate all the objects.
 5. Validate using SE80 or Eclipse to confirm objects are activated.
 
-<div align="center">
-  <img src="docs/images/abapgit_clone.png" alt="abapGit Clone Example" width="500"/>
-</div>
+
 
 ---
 
