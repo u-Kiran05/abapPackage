@@ -13,7 +13,7 @@
 
 <div align="center">
   <img src="https://4.bp.blogspot.com/-v8r1CSNOuJk/WiDKZiFCHoI/AAAAAAAAQFg/belUeZSF81QOVdSE6UR0lwTUG3XIIaBXACLcBGAs/s1600/1.jpg" alt="ABAP Package Overview" width="600"/>
-  <p><i>Fig 1: Overview of ABAP package structure</i></p>
+  <p><i>Overview of ABAP package structure</i></p>
 </div>
 
 ---
